@@ -4,7 +4,10 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["airbnb", "plugin:react-native/all"],
+  "extends": [
+    "airbnb",
+    "plugin:react-native/all"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
@@ -17,14 +20,29 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-native", "jsx-a11y", "import"],
+  "plugins": [
+    "react",
+    "react-native",
+    "jsx-a11y",
+    "import"
+  ],
   "rules": {
     "react/jsx-filename-extension": [
       "error",
-      { "extensions": [".js", ".jsx"] }
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
     ],
     "import/prefer-default-export": "off",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "react/jsx-one-expression-per-line": "off",
     "react-native/no-color-literals": "off",
     "react-native/sort-styles": "off",
@@ -33,7 +51,9 @@
   },
   "settings": {
     "import/resolver": {
-      "babel-plugin-root-import": { "rootPathSuffix": "src" }
+      "babel-plugin-root-import": {
+        "rootPathSuffix": "src"
+      }
     }
   }
 }
