@@ -13,6 +13,7 @@ import Tabs from '~/components/Tabs';
 import Menu from '~/components/Menu';
 
 const Main = () => {
+  let offset = 0;
   const translateY = new Animated.Value(0);
 
   const animatedEvent = Animated.event(
@@ -30,7 +31,6 @@ const Main = () => {
   onHandlerStateChange = (e) => {
     if (e.nativeEvent.oldState === State.ACTIVE) {
       let opened = false;
-      const offset = 0;
       const { translationY } = e.nativeEvent;
 
 
@@ -38,12 +38,20 @@ const Main = () => {
 
       if (translationY >= 100) {
         opened = true;
+      } else {
+        translateY.setValue(offset);
+        translateY.setOffset(0);
+        offset = 0;
       }
 
       Animated.timing(translateY, {
-        toValue: 400,
+        toValue: opened ? 400 : 0,
         duration: 200,
         useNativeDriver: true,
+      }).start(() => {
+        offset = opened ? 400 : 0;
+        translateY.setOffset(offset);
+        translateY.setValue(0);
       });
     }
   };

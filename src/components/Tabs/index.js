@@ -8,7 +8,7 @@ const Tabs = ({ translateY }) => (
   <Container style={{
     transform: [{
       translateY: translateY.interpolate({
-        inputRange: [0, 380],
+        inputRange: [0, 400],
         outputRange: [0, 30],
         extrapolate: 'clamp',
       }),
